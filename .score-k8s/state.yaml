@@ -1,0 +1,48 @@
+workloads:
+  game-service:
+    spec:
+      apiVersion: score.dev/v1b1
+      containers:
+        container-id:
+          image: test
+          variables:
+            my_var: adfaf
+      metadata:
+        name: game-service
+      resources:
+        db:
+          type: mysql
+      service:
+        ports:
+          admin:
+            port: 8080
+            protocol: UDP
+          www:
+            port: 80
+            targetPort: 8080
+    file: score.yaml
+    instance_suffix: -3651fa480a
+resources:
+  mysql.default#game-service.db:
+    guid: 1b96c7b7-8d36-404c-09e3-587eab4dec65
+    type: mysql
+    class: default
+    id: game-service.db
+    metadata: {}
+    params: {}
+    source_workload: game-service
+    provisioner: template://default-provisioners/mysql
+    state:
+      database: db-ovElxdmC
+      password: R9qywQxCGvKtmNzN
+      service: mysql-game-service-1b96c7b7
+      username: user-hNVNlzAr
+    outputs:
+      database: db-ovElxdmC
+      host: mysql-game-service-1b96c7b7
+      name: db-ovElxdmC
+      password: "\U0001F510\U0001F4ACmysql-game-service-1b96c7b7_MYSQL_PASSWORD\U0001F4AC\U0001F510"
+      port: 3306
+      username: user-hNVNlzAr
+shared_state: {}
+patching_templates: []

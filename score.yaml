@@ -1,0 +1,33 @@
+apiVersion: score.dev/v1b1
+
+metadata:
+  name: game-service
+
+containers:
+  container-id:
+    image: .
+    variables:
+      SPRING_ACTIVE_PROFILES: "dev"
+    livenessProbe:
+      httpGet:
+        scheme: HTTP
+        path: /actuator/liveness
+        port: 8080
+
+    readinessProbe:
+      httpGet:
+        scheme: HTTP
+        path: /actuator/readiness
+        port: 8080
+
+resources:
+  db:
+    type: mysql
+service:
+  ports:
+    www:
+      port: 80
+      targetPort: 8080
+    admin:
+      port: 8080
+      protocol: UDP

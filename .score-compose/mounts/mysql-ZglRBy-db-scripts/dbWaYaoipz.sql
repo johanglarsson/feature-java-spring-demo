@@ -1,0 +1,5 @@
+CREATE DATABASE IF NOT EXISTS dbWaYaoipz;
+USE dbWaYaoipz;
+CREATE USER IF NOT EXISTS 'user-nnOGMnCp'@'localhost' IDENTIFIED BY 'qfvAayNhhD8tYXDm';
+GRANT ALL PRIVILEGES ON dbWaYaoipz TO 'user-nnOGMnCp'@'localhost';
+FLUSH PRIVILEGES;
